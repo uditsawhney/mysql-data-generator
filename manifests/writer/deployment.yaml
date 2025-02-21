@@ -1,1 +1,19 @@
-a
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-writer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql-writer
+  template:
+    metadata:
+      labels:
+        app: mysql-writer
+    spec:
+      containers:
+      - name: writer
+        image: your-dockerhub-username/mysql-writer:v1
+        ports:
+        - containerPort: 8000
