@@ -1,1 +1,20 @@
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-reader
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mysql-reader
+  template:
+    metadata:
+      labels:
+        app: mysql-reader
+    spec:
+      containers:
+      - name: reader
+        image: your-dockerhub-username/mysql-reader:v1
+        ports:
+        - containerPort: 5000
+        - containerPort: 8001
