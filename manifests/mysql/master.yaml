@@ -1,1 +1,37 @@
-a
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-master
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql-master
+  template:
+    metadata:
+      labels:
+        app: mysql-master
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:5.7
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secrets
+              key: root-password
+        - name: MYSQL_DATABASE
+          value: "testdb"
+        ports:
+        - containerPort: 3306
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-master
+spec:
+  ports:
+  - port: 3306
+  selector:
+    app: mysql-master
