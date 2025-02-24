@@ -24,7 +24,7 @@ setting up a Kubernetes cluster, deploying MySQL with replication, with a writer
    git clone https://github.com/uditsawhney/mysql-data-generator.git
    
    cd <repository-folder>
-   
+ ```   
 3. Run the deployment script:
    
    chmod +x scripts/deploy.sh
