@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: reader
-        image: your-dockerhub-username/mysql-reader:v1
+        image: udit7803/mysql-reader:v1
         ports:
         - containerPort: 5000
         - containerPort: 8001
