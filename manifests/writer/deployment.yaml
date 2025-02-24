@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: writer
-        image: your-dockerhub-username/mysql-writer:v1
+        image: udit7803/mysql-writer:v1
         ports:
         - containerPort: 8000
